@@ -1,0 +1,4 @@
+*.log
+certs/
+master/openxt-windows
+windows/openxt-windows/build/openxt
