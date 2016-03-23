@@ -1,4 +1,6 @@
 *.log
 certs/
 master/openxt-windows
+master/state.sqlite
+master/.htaccess
 windows/openxt-windows/build/openxt
