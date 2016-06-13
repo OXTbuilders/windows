@@ -22,9 +22,9 @@ powershell .\winbuild-all.ps1
 
 cd output
 echo %BUILDID% > BUILD_ID
-if "%CUSTOM%"=="no"  rsync --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r -a BUILD_ID sdk.zip win-tools.zip xctools-iso.zip xc-windows.zip builds@192.168.0.10:/home/builds/win/%BRANCH%/
-if "%CUSTOM%"=="no"  rsync --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r -a xc-wintools.iso builds@192.168.0.10:/home/builds/builds/%BRANCH%/windows-tools/%BUILDID%/
-if "%CUSTOM%"=="yes" rsync --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r -a * builds@192.168.0.10:/home/builds/builds/windows-custom/%BUILDID%/
+if "%CUSTOM%"=="no"  rsync --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r -a --exclude=xc-wintools.iso * builds@192.168.0.10:/home/builds/win/%BRANCH%/
+if "%CUSTOM%"=="no"  rsync --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r -a xc-wintools.iso             builds@192.168.0.10:/home/builds/builds/%BRANCH%/windows-tools/%BUILDID%/
+if "%CUSTOM%"=="yes" rsync --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r -a *                           builds@192.168.0.10:/home/builds/builds/windows-custom/%BUILDID%/
 
 exit /b 0
 
